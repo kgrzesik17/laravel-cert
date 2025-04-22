@@ -105,13 +105,38 @@ use App\Models\Post;
 
 // });
 
-Route::get('/findmore', function() {
 
-    // $posts = Post::findOrFail(1);
+// Route::get('/findmore', function() {
 
-    // return $posts;
+//     // $posts = Post::findOrFail(1);
 
-    $posts = Post::where('users_count', '<', 50)->firstOrFail();
+//     // return $posts;
 
-    
+//     $posts = Post::where('users_count', '<', 50)->firstOrFail();
+
+
+// });
+
+
+// inserting 
+// Route::get('/basicinsert', function() {
+//     $post = new Post;
+
+//     $post->title = 'new eloquent (ORM) title';
+//     $post->content = 'wow eloquent is really cool';
+
+//     $post->save();
+
+// });
+
+// altering records 
+Route::get('/basicinsert2', function() {
+
+    $post = Post::find(4);
+
+    $post->title = 'New eloquent title insert 2';
+    $post->content = 'new eloquent content number 2';
+
+    $post->save();
+
 });
