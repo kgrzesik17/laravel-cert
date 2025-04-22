@@ -61,3 +61,9 @@ Route::get('/update', function() {
     return $updated;
 
 });
+
+Route::get('/delete', function() {
+    $deleted = DB::delete('delete from posts where id = ?', [2]);
+
+    return $deleted;
+});
