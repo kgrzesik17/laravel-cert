@@ -44,12 +44,20 @@ use Illuminate\Support\Facades\Route;
 //     DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with Laravel', 'PHP Laravel is the best thing that has happened to PHP']);
 // });
 
-Route::get('/read', function() {
-    $results = DB::select('select * from posts where id = ?', [1]);
+// Route::get('/read', function() {
+//     $results = DB::select('select * from posts where id = ?', [1]);
 
-    return var_dump($results);
+//     return var_dump($results);
 
-    // foreach($results as $result) {
-    //     return $result->title;
-    // }
+//     // foreach($results as $result) {
+//     //     return $result->title;
+//     // }
+// });
+
+Route::get('/update', function() {
+    
+    $updated = DB::update('update posts set title = "Updated title" where id = ?', [1]);
+
+    return $updated;
+
 });
