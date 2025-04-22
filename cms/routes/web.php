@@ -84,10 +84,23 @@ use App\Models\Post;
 
 // });
 
-Route::get('/find', function() {
+// automatically finding things on db
+// Route::get('/find', function() {
 
-    // fetch data
-    $post = Post::find(1);
-    return $post->title;
+//     // fetch data
+//     $post = Post::find(1);
+//     return $post->title;
+
+// });
+
+// Route::get('/insert', function() {
+//     DB::insert('insert into posts (title, content) values (?,?)', ['Alt Title', 'Alt Content']);
+// });
+
+Route::get('/findwhere', function() {
+
+    $posts = Post::where('id', 1)->orderBy('id', 'desc')->take(1)->get();
+
+    return $posts;
 
 });
