@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
+
 //     return view('welcome');
+
 // });
 
 // Route::get('/about', function () {
@@ -31,6 +33,23 @@ use Illuminate\Support\Facades\Route;
 
 // Route::resource('posts', 'App\Http\Controllers\PostsController');
 
-Route::get('/contact', '\App\Http\Controllers\PostsController@contact');
+// Route::get('/contact', '\App\Http\Controllers\PostsController@contact');
 
-Route::get('post/{id}/{name}', '\App\Http\Controllers\PostsController@show_post');
+// Route::get('post/{id}/{name}', '\App\Http\Controllers\PostsController@show_post');
+
+// not needed
+// use Illuminate\Support\Facades\DB;
+
+// Route::get('/insert', function() {
+//     DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with Laravel', 'PHP Laravel is the best thing that has happened to PHP']);
+// });
+
+Route::get('/read', function() {
+    $results = DB::select('select * from posts where id = ?', [1]);
+
+    return var_dump($results);
+
+    // foreach($results as $result) {
+    //     return $result->title;
+    // }
+});
