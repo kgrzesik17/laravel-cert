@@ -130,13 +130,85 @@ use App\Models\Post;
 // });
 
 // altering records 
-Route::get('/basicinsert2', function() {
+// Route::get('/basicinsert2', function() {
 
-    $post = Post::find(4);
+//     $post = Post::find(4);
 
-    $post->title = 'New eloquent title insert 2';
-    $post->content = 'new eloquent content number 2';
+//     $post->title = 'New eloquent title insert 2';
+//     $post->content = 'new eloquent content number 2';
 
-    $post->save();
+//     $post->save();
+
+// });
+
+// mass assigning
+// Route::get('/create', function() {
+
+//     Post::create(['title'=>'the create method', 'content'=>'WOW i\'m learning a lot']);
+
+// });
+
+
+// updating
+// Route::get('/update', function() {
+
+//     Post::where('id', 6)->where('is_admin', 0)->update(['title'=>'NEW PHP TITLE', 'content'=>'I love my instructor']);
+
+// });
+
+
+// deleting
+// Route::get('/delete', function() {
+
+//     $post = Post::find(20);
+
+//     $post->delete();
+
+// });
+
+// Route::get('/delete2', function() {
+
+//     Post::destroy([4, 5]);
+
+// });
+
+// Route::get('/delete3', function() {
+
+//     Post::where('is_admin', 0)->delete();
+
+// });
+
+// Route::get('/softdelete', function() {
+
+//     Post::find(10)->delete();
+
+// });
+
+// Route::get('/readsoftdelete', function() {
+
+//     // doesn't work because it knows it was trashed
+//     // $post = Post::find(1);
+//     // return $post;
+
+//     // $post = Post::withTrashed()->where('id', 9)->get();
+//     // return $post;
+
+//     $post = Post::onlyTrashed()->where('is_admin', 0)->get();
+//     return $post;
+
+// });
+
+// restoring deleted items
+// Route::get('/restore', function() {
+
+//     Post::withTrashed()->where('is_admin', 0)->restore();
+
+// });
+
+
+// force delete
+Route::get('/forcedelete', function() {
+
+    Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
 
 });
