@@ -97,10 +97,21 @@ use App\Models\Post;
 //     DB::insert('insert into posts (title, content) values (?,?)', ['Alt Title', 'Alt Content']);
 // });
 
-Route::get('/findwhere', function() {
+// Route::get('/findwhere', function() {
 
-    $posts = Post::where('id', 1)->orderBy('id', 'desc')->take(1)->get();
+//     $posts = Post::where('id', 1)->orderBy('id', 'desc')->take(1)->get();
 
-    return $posts;
+//     return $posts;
 
+// });
+
+Route::get('/findmore', function() {
+
+    // $posts = Post::findOrFail(1);
+
+    // return $posts;
+
+    $posts = Post::where('users_count', '<', 50)->firstOrFail();
+
+    
 });
