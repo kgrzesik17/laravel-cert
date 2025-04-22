@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Post;
+
 // Route::get('/', function () {
 
 //     return view('welcome');
@@ -54,16 +56,38 @@ use Illuminate\Support\Facades\Route;
 //     // }
 // });
 
-Route::get('/update', function() {
+// Route::get('/update', function() {
     
-    $updated = DB::update('update posts set title = "Updated title" where id = ?', [1]);
+//     $updated = DB::update('update posts set title = "Updated title" where id = ?', [1]);
 
-    return $updated;
+//     return $updated;
 
-});
+// });
 
-Route::get('/delete', function() {
-    $deleted = DB::delete('delete from posts where id = ?', [2]);
+// Route::get('/delete', function() {
+//     $deleted = DB::delete('delete from posts where id = ?', [2]);
 
-    return $deleted;
+//     return $deleted;
+// });
+
+
+
+// ELOQUENT ORM
+
+// Route::get('/read', function() {
+
+//     $posts = Post::all();
+ 
+//     foreach($posts as $post) {
+//         return $post->title;
+//     }
+
+// });
+
+Route::get('/find', function() {
+
+    // fetch data
+    $post = Post::find(1);
+    return $post->title;
+
 });
