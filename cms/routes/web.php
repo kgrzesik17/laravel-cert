@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Post;
+use App\Models\User;
+use App\Models\Country;
 
 // Route::get('/', function () {
 
@@ -207,8 +209,73 @@ use App\Models\Post;
 
 
 // force delete
-Route::get('/forcedelete', function() {
+// Route::get('/forcedelete', function() {
 
-    Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+//     Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+
+// });
+
+
+/*
+| ELOQUENT RELATIONSHIPS |
+*/
+
+// // one to one relationship
+// Route::get('/user/{id}/post', function($id) {
+
+//     return User::find($id)->post->content;
+
+// });
+
+// // returns username assigned to posts creator
+// Route::get('/post/{id}/user', function($id) {
+
+//     return Post::find($id)->user->name;
+
+// });
+
+// one to many relationship
+// Route::get('/posts', function() {
+
+//     $user = User::find(1);
+
+//     foreach($user->posts as $post) {
+//         echo $post->title . "<br>";
+//     }
+
+// });
+
+// many to many relationship
+// Route::get('/user/{id}/role', function($id) {
+
+//     $user = User::find($id)->roles()->orderBy('id', 'desc')->get();
+
+//     return $user;
+
+//     // foreach($user->roles as $role) {
+//     //     return $role->name;
+//     // }
+// });
+
+
+// accessing the table / pivot
+
+Route::get('user/pivot', function() {
+
+   $user = User::find(1);
+   
+   foreach($user->roles as $role) {
+    return $role->pivot;
+   }
+
+});
+
+Route::get('user/country', function() {
+
+   $country = Country::find(3);
+
+   foreach($country->posts as $post) {
+      return $post->title;
+   }
 
 });

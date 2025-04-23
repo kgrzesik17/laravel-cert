@@ -14,6 +14,11 @@ class Post extends Model
         'content'
     ];
 
+    // find user assigned to post
+    public function user() {
+        return $this->belongsTo('App\Models\User');
+    }
+
     //
     // protected $table = 'posts';
     // protected $primaryKey = 'posts_id';

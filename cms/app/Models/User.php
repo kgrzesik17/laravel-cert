@@ -33,6 +33,19 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function post() {
+
+        return $this->hasOne('App\Models\Post');  // default: user_id
+        // return $this->hasOne('App\Models\Post', 'the_user_id');
+
+    }
+
+    public function posts() {
+
+        return $this->hasMany('App\Models\Post');
+
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -44,5 +57,12 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function roles() {
+        return $this->belongsToMany('App\Models\Role')->withPivot('created_at');
+
+        // // customize table names
+        // return $this->belongsToMany('App\Models\Role', 'role_user', 'user_id', 'role_id');
     }
 }
