@@ -1,0 +1,22 @@
+laravel cmd:
+laravel new $name   creates an application
+
+artisan:
+    php artisan ...
+
+serve               starts a server
+
+migrate             executes migrations
+migrate:reset       resets migrations
+migrate:rollback    undo
+migrate:refresh     roll back and migrate again
+migrage:status      shows migration status
+
+make:model          make a model
+    -m              make a migration
+    --table="name"  make a migration for this table
+
+eloquent
+
+User::find($id)     returns an user with such id
+hasOne(model)		returns model correlated with such id

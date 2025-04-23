@@ -260,22 +260,36 @@ use App\Models\Country;
 
 // accessing the table / pivot
 
-Route::get('user/pivot', function() {
+// Route::get('user/pivot', function() {
 
-   $user = User::find(1);
+//    $user = User::find(1);
    
-   foreach($user->roles as $role) {
-    return $role->pivot;
+//    foreach($user->roles as $role) {
+//     return $role->pivot;
+//    }
+
+// });
+
+// Route::get('user/country', function() {
+
+//    $country = Country::find(3);
+
+//    foreach($country->posts as $post) {
+//       return $post->title;
+//    }
+
+// });
+
+
+// polymorphic relations
+
+
+Route::get('post/{id}/photos', function($id) {
+
+   $post = Post::find($id);
+   
+   foreach($post->photos as $photo) {
+      echo $photo->path . "<br>";
    }
-
-});
-
-Route::get('user/country', function() {
-
-   $country = Country::find(3);
-
-   foreach($country->posts as $post) {
-      return $post->title;
-   }
-
+   
 });
