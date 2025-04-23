@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('taggable_id');
             $table->string('taggable_type');
         });
-    }
+}
 
     /**
      * Reverse the migrations.

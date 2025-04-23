@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Country;
 use App\Models\Photo;
+use App\Models\Tag;
 
 // Route::get('/', function () {
 
@@ -313,6 +314,27 @@ Route::get('/post/tag', function() {
 
    foreach($post->tags as $tag) {
       echo $tag->name;
+   }
+
+});
+
+
+Route::get('/tag/video', function() {
+
+   $tag = Tag::find(1);
+
+   foreach($tag->videos as $video) {
+      echo $video->name;
+   }
+
+});
+
+Route::get('/tag/post', function() {
+
+   $tag = Tag::find(2);
+
+   foreach($tag->posts as $post) {
+      echo $post->title;
    }
 
 });
