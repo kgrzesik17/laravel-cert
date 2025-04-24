@@ -34,9 +34,31 @@ Route::get('/update', function() {
 // read data from db
 Route::get('/read', function() {
 
-    $user = User::find(1);
-    $address = $user->address;
+    $user = User::findOrFail(1);
 
-    return $address;
+    echo $user->address->name;
+
+});
+
+
+Route::get('/read/{id}', function($id) {
+
+    $user = User::findOrFail($id);
+    $addresses = $user->addresses;
+
+    foreach($addresses as $address) {
+        echo $address->name . "<br>";
+    }
+
+});
+
+
+// delete data from db
+Route::get('/delete', function() {
+
+    $user = User::findOrFail(1);
+
+    // if you want to use the method, you need to use parentheses
+    $user->address()->delete();
 
 });

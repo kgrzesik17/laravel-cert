@@ -45,17 +45,4 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
-    // return user's address
-    public function address(){
-        // one to one relationship
-        return $this->hasOne('App\Models\Address');
-
-    }
-
-    // return all users addresses
-    public function addresses() {
-        return $this->hasMany('App\Models\Address');
-    }
-    
 }
