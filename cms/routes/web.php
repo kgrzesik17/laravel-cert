@@ -8,11 +8,11 @@ use App\Models\Country;
 use App\Models\Photo;
 use App\Models\Tag;
 
-// Route::get('/', function () {
+Route::get('/', function () {
 
-//     return view('welcome');
+    return view('welcome');
 
-// });
+});
 
 // Route::get('/about', function () {
 //     return "Hi about page";
@@ -308,33 +308,33 @@ use App\Models\Tag;
 
 // Polymorphic Many to Many
 
-Route::get('/post/tag', function() {
+// Route::get('/post/tag', function() {
 
-   $post = Post::find(1);
+//    $post = Post::find(1);
 
-   foreach($post->tags as $tag) {
-      echo $tag->name;
-   }
+//    foreach($post->tags as $tag) {
+//       echo $tag->name;
+//    }
 
-});
+// });
 
 
-Route::get('/tag/video', function() {
+// Route::get('/tag/video', function() {
 
-   $tag = Tag::find(1);
+//    $tag = Tag::find(1);
 
-   foreach($tag->videos as $video) {
-      echo $video->name;
-   }
+//    foreach($tag->videos as $video) {
+//       echo $video->name;
+//    }
 
-});
+// });
 
-Route::get('/tag/post', function() {
+// Route::get('/tag/post', function() {
 
-   $tag = Tag::find(2);
+//    $tag = Tag::find(2);
 
-   foreach($tag->posts as $post) {
-      echo $post->title;
-   }
+//    foreach($tag->posts as $post) {
+//       echo $post->title;
+//    }
 
-});
+// });

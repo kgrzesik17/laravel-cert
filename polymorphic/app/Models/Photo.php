@@ -4,11 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Photo extends Model
 {
     //
 
     protected $fillable = [
-        'name',
+        'path',
     ];
+
+    public function imageable() {
+
+        return $this->morphTo();
+
+    }
 }
