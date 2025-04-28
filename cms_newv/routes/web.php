@@ -344,5 +344,9 @@ Route::get('/', function () {
 
 // CRUD APPLICATION
 
-// resource gives pre-defined routes and URI's
-Route::resource('/posts', 'App\Http\Controllers\PostsController');
+// security feature
+Route::group(['middleware'=>'web'], function() {
+
+    // resource gives pre-defined routes and URI's
+    Route::resource('/posts', 'App\Http\Controllers\PostsController');
+});

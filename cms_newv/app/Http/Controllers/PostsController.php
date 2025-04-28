@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Http\Requests\CreatePostRequest;
 
 class PostsController extends Controller
 {
@@ -31,9 +32,18 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    // public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
-        //
+        // // probably an old version, doesn't work for me
+        // $this->validate($request, [
+        //     'title'=>'required|max:50',  // these are VALIDATION RULES
+        //     'content'=>'required'
+        // ]);
+
+        // $validated = $request->validate([  // these are VALIDATION RULES
+        //     'title' => 'required|max:16',
+        // ]);
 
         // return $request->all();
 
