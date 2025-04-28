@@ -14,10 +14,14 @@ class PostsController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        // $posts = Post::all();
+        // $posts = Post::latest()->get();  // latest on top
+
+        // $posts = Post::orderBy('id', 'asc')->get();  // oldest on top
+        $posts = Post::latestPost();
 
         return view('posts.index', compact('posts'));
-    }
+    } 
 
     /**
      * Show the form for creating a new resource.

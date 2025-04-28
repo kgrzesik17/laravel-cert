@@ -33,4 +33,8 @@ class Post extends Model
 
     protected $dates = ['deleted_at'];
 
+    //query scope 
+    public static function scopeLatestPost($query) {  // scopeCamelCase
+        return $query->orderBy('id', 'asc')->get();
+    }
 };
